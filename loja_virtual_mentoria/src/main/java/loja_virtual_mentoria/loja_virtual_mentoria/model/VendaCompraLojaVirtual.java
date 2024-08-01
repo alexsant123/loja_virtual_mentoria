@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@SuppressWarnings({ "unused", "unused" })
 @Entity
 @Table(name = "vd_cp_loja_virt")
 @SequenceGenerator(name = "seq_vd_cp_loja_virt", sequenceName = "seq_vd_cp_loja_virt", allocationSize = 1, initialValue = 1)
@@ -45,7 +44,7 @@ public class VendaCompraLojaVirtual {
 	
 	@OneToOne
   	@JoinColumn(name = "nota_fiscal_venda_id", nullable = false,
-  	foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_cobranca_fk"))
+  	foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "nota_fiscal_venda_fk"))
     private NotaFiscalVenda NotaFiscalvenda;
 	
 	 @ManyToOne
@@ -53,7 +52,7 @@ public class VendaCompraLojaVirtual {
 	 foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cupom_desc_fk"))
 	 private CupDesc cupDesc;
 	 
-	 private BigDecimal valorFret;
+     private BigDecimal valorFret;
 	 
 	 private Integer diaEntrega;
 	 

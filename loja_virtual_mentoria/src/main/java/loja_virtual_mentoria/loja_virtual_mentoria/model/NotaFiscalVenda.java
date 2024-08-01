@@ -3,12 +3,16 @@ package loja_virtual_mentoria.loja_virtual_mentoria.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 
 @Entity
 @Table(name = "nota_fiscal_venda")
@@ -38,6 +42,12 @@ public class NotaFiscalVenda implements Serializable{
 
 	@Column(columnDefinition = "text", nullable = false)
 	private String pdf;
+	
+	
+	@OneToOne
+	@JoinColumn(name = "venda_compra_loja_virt_id", nullable = true, 
+	foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virt_fk"))
+	private VendaCompraLojaVirtual vendaCompraLojaVirtual;
 
 	public Long getId() {
 		return id;
