@@ -28,21 +28,28 @@ public class Produto implements Serializable {
 	
 	private Boolean ativo = Boolean.TRUE;
 
-	@Column(columnDefinition = "text", length = 2000)
+	@Column(columnDefinition = "text", length = 2000 , nullable = false)
 	private String descricao;
 
 	/** Nota item nota produto - ASSOCIAR **/
 
-	private Double peso; /* 1000.55 G */
-
+	@Column(nullable = false)
+	private Double peso;
+	
+	@Column(nullable = false)
 	private Double largura;
 
+	@Column(nullable = false)
 	private Double altura;
 
+	@Column(nullable = false)
 	private Double profundidade;
 
-	private BigDecimal valorVenda = BigDecimal.ZERO;
+	
+	@Column(nullable = false)
+    private BigDecimal valorVenda = BigDecimal.ZERO;
 
+	@Column(nullable = false)
 	private Integer QtdEstoque = 0;
 
 	private Integer QtdeAlertaEstoque = 0;
